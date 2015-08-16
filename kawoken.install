@@ -1,0 +1,45 @@
+post_install() {
+    cat <<__EOF__
+---- kawoken-icons ---------------------------------------------------
+  This icon theme comes with a customization script to tune some aspects of it,
+  such as folder or start icons.
+
+  The customizations are performed for the user running the script,
+  so they won't affect other users.
+
+  To launch it simply run 'kawoken-icon-theme-customization' from a terminal.
+
+  More info is available at /usr/share/doc/kawoken-icons/Customization.pdf
+---------------------------------------------------------------------
+__EOF__
+}
+
+post_upgrade() {
+    cat <<__EOF__
+---- kawoken-icons ---------------------------------------------------
+  If you ran the customization script previously you need to run it again (and
+  choose your preferences) in order to use the new version of the icon set. If
+  you wish to do a clean customization, remove your previous one by deleting
+  ~/.icons/kAwOken* and ~/.kAwOkenrc*
+
+  To customize run 'kawoken-icon-theme-customization'.
+
+  More info is available at /usr/share/doc/kawoken-icons/Customization.pdf
+---------------------------------------------------------------------
+__EOF__
+}
+
+post_remove() {
+    cat <<__EOF__
+----kawoken-icons ---------------------------------------------------
+  If you or any other user used the customization script that comes with the
+  icon set, there are 2 things that need to be deleted manually in the home
+  directory of those users in order to remove it completely:
+
+  Configuration files:     ~/{.AwOkenrc,.kAwOkenrcDark,kAwOkenrcWhite}
+  And a copy of the icons: ~/.icons/{kAwOken,kAwOkenDark,kAwOkenrcWhite}
+
+  More info is available at /usr/share/doc/kawoken-icons/Customization.pdf
+---------------------------------------------------------------------
+__EOF__
+}
